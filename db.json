@@ -1,0 +1,131 @@
+{
+  "users": [
+    {
+      "id": "b78a",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "1234",
+      "role": "admin"
+    },
+    {
+      "id": "dc3a",
+      "name": "Doctor",
+      "email": "doctor@gmail.com",
+      "password": "1234",
+      "role": "doctor",
+      "specialization": "general",
+      "phone": "12343",
+      "fee": 123
+    },
+    {
+      "id": "67a3",
+      "name": "patient",
+      "email": "patient@gmail.com",
+      "password": "1234",
+      "role": "patient"
+    },
+    {
+      "id": "P002",
+      "name": "Tanujkumar",
+      "age": 20,
+      "gender": "Male",
+      "phone": "9573697531",
+      "bloodGroup": "A-"
+    },
+    {
+      "id": "ce29",
+      "name": "tanuj ",
+      "email": "tanuj@gmail.com",
+      "password": "123",
+      "role": "patient"
+    },
+    {
+      "id": "4111",
+      "name": "admin",
+      "email": "admin@hospital.com",
+      "password": "123",
+      "role": "admin"
+    },
+    {
+      "id": "P004",
+      "name": "ram",
+      "age": 12,
+      "gender": "Male",
+      "phone": "2345678",
+      "bloodGroup": "O+",
+      "role": "patient"
+    },
+    {
+      "id": "D004",
+      "name": "suresh",
+      "specialization": "general",
+      "phone": "2345678",
+      "fee": 12002,
+      "role": "doctor"
+    },
+    {
+      "id": "dfeb",
+      "name": "rahul",
+      "email": "rahul@gmail.com",
+      "password": "123",
+      "role": "patient"
+    },
+    {
+      "id": "7ba0",
+      "name": "varun",
+      "email": "varun@gmail.com",
+      "password": "123",
+      "role": "doctor"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1",
+      "patientId": "67a3",
+      "patientName": "patient",
+      "patientEmail": "patient@gmail.com",
+      "doctorId": "dc3a",
+      "doctorName": "Doctor",
+      "doctorEmail": "doctor@gmail.com",
+      "date": "2025-10-16",
+      "timeSlot": "Afternoon",
+      "status": "Scheduled"
+    },
+    {
+      "id": "5",
+      "patientId": "ce29",
+      "patientName": "tanuj ",
+      "patientEmail": "tanuj@gmail.com",
+      "doctorId": "9328",
+      "doctorName": "ravi",
+      "doctorEmail": "ravi@gmail.com",
+      "date": "2025-10-30",
+      "timeSlot": "Afternoon",
+      "status": "Scheduled"
+    },
+    {
+      "id": "8",
+      "patientId": "3832",
+      "patientName": "sahithi",
+      "patientEmail": "sahithi@gmail.com",
+      "doctorId": "95f9",
+      "doctorName": "pinky",
+      "doctorEmail": "pinky@gmail.com",
+      "date": "2025-10-18",
+      "timeSlot": "Morning",
+      "status": "Scheduled"
+    },
+    {
+      "id": "4",
+      "patientId": "P004",
+      "patientName": "ram",
+      "patientEmail": "",
+      "doctorId": "D004",
+      "doctorName": "suresh",
+      "doctorEmail": "",
+      "date": "2025-10-30",
+      "timeSlot": "Morning",
+      "status": "Scheduled"
+    }
+  ]
+}

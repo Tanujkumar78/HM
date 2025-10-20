@@ -1,0 +1,54 @@
+<div class="patient-container">
+
+
+   <button class="back-btn" (click)="goBack()">
+  ← Back
+</button>
+  <h2>Patient Management</h2>
+
+  <form (ngSubmit)="addPatient()" class="patient-form">
+    <input type="text" [(ngModel)]="newPatient.name" name="name" placeholder="Name" required />
+    <input type="number" [(ngModel)]="newPatient.age" name="age" placeholder="Age" required />
+    <input type="email" [(ngModel)]="newPatient.email" name="email" placeholder="Email" required />
+    <select [(ngModel)]="newPatient.gender" name="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+    <input type="text" [(ngModel)]="newPatient.phone" name="phone" placeholder="Phone Number" required />
+    <select [(ngModel)]="newPatient.bloodGroup" name="bloodGroup">
+      <option value="">Select Blood Group</option>
+      <option>A+</option><option>A-</option>
+      <option>B+</option><option>B-</option>
+      <option>O+</option><option>O-</option>
+      <option>AB+</option><option>AB-</option>
+    </select>
+
+    <button type="submit">Add Patient</button>
+  </form>
+
+  <table class="patient-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Blood Group</th>
+      </tr>
+    </thead>
+    <tbody>
+   <tr *ngFor="let p of patients; let i= index ">
+        <td>{{i+1}}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.email }}</td>  
+        <td>{{ p.age }}</td>
+        <td>{{ p.gender }}</td>
+        <td>{{ p.phone }}</td>
+        <td>{{ p.bloodGroup }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,31 @@
+<div class="patient-dashboard">
+  <h2>Welcome, {{ patient.name }}</h2>
+  <p>Email: {{ patient.email }}</p>
+
+  <h3>Your Appointments</h3>
+
+  <table *ngIf="appointments.length > 0; else noData">
+    <thead>
+      <tr>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time Slot</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of appointments">
+        <td>{{ app.doctorName }}</td>
+        <td>{{ app.date }}</td>
+        <td>{{ app.timeSlot }}</td>
+        <td>{{ app.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>No appointments found.</p>
+  </ng-template>
+
+  <button (click)="logout()">Logout</button>
+</div>

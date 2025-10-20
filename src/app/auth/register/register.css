@@ -1,0 +1,179 @@
+.register-container {
+  width: min(92vw, 480px);
+  margin: 0;
+  padding: 24px 20px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.26);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 16px 44px rgba(2, 6, 23, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 88vh;
+  overflow: hidden;
+}
+
+input, select {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin: 12px auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fafc;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+select {
+  appearance: none;
+  padding-right: 40px; /* room for arrow */
+  background-image: linear-gradient(45deg, transparent 50%, rgba(203,213,225,0.9) 50%),
+                    linear-gradient(135deg, rgba(203,213,225,0.9) 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% + 2px), calc(100% - 15px) calc(50% + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* Improve option menu look where supported */
+select option {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+input:focus, select:focus {
+  border-color: #64748b;
+  box-shadow: 0 0 0 4px rgba(100, 116, 139, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+button {
+  width: 100%;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #475569, #334155);
+  color: #e2e8f0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
+}
+
+button:hover {
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.45);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+h2 {
+  margin: 0 0 14px 0;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.3px;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+}
+
+a {
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:host {
+  display: block;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  position: fixed;
+  inset: 0;
+}
+
+@media (max-width: 560px) {
+  .register-container {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Reduce spacing on short screens to avoid scroll */
+@media (max-height: 700px) {
+  .register-container {
+    max-height: 84vh;
+    padding: 16px 14px;
+  }
+  input, select { margin: 10px auto; padding: 10px 12px; }
+  button { padding: 10px 16px; }
+}
+
+/* Background video layer */
+.auth-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: blur(2px) brightness(0.92);
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.18)),
+    radial-gradient(1200px 600px at 10% -10%, rgba(100, 116, 139, 0.12), transparent 55%),
+    radial-gradient(1000px 500px at 110% 10%, rgba(148, 163, 184, 0.12), transparent 55%);
+  z-index: -1;
+}
+
+/* Ensure the card sits above the background */
+.register-container {
+  position: relative;
+  z-index: 1;
+}

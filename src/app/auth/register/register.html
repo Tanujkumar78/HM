@@ -1,0 +1,21 @@
+<div class="auth-bg">
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://videos.pexels.com/video-files/6998652/6998652-hd_1080_1920_25fps.mp4" type="video/mp4" />
+  </video>
+  <div class="bg-overlay"></div>
+</div>
+<div class="register-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="register()">
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Name" required>
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+    <select [(ngModel)]="role" name="role">
+      <option value="patient">Patient</option>
+      <option value="doctor">Doctor</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a (click)="go_to_login_page()">Login</a></p>
+</div>

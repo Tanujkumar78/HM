@@ -1,0 +1,43 @@
+<div class="doctor-dashboard">
+  <h2>Welcome, Dr. {{ doctor.name }}</h2>
+  <p>Email: {{ doctor.email }}</p>
+
+  <div class="stats">
+    <div class="card total">
+      <h3>Total Appointments</h3>
+      <p>{{ totalAppointments }}</p>
+    </div>
+    <div class="card completed">
+      <h3>Completed</h3>
+      <p>{{ completedAppointments }}</p>
+    </div>
+  </div>
+
+  <h3>Your Appointments</h3>
+  <table *ngIf="appointments.length > 0; else noAppointments">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Patient</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let app of appointments; let i=index">
+        <td>{{ i+1 }}</td>
+        <td>{{ app.patientName }}</td>
+        <td>{{ app.date }}</td>
+        <td>{{ app.timeSlot }}</td>
+        <td>{{ app.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noAppointments>
+    <p>No appointments found.</p>
+  </ng-template>
+
+  <button (click)="logout()" class="logout-btn">Logout</button>
+</div>

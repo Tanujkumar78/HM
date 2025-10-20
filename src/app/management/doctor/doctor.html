@@ -1,0 +1,88 @@
+<div class="doctor-container">
+   <button class="back-btn" (click)="goBack()">
+  ← Back
+</button>
+  <h2>Doctor Management</h2>
+
+  <form (ngSubmit)="addDoctor()" class="doctor-form">
+    <div>
+      <label>Doctor Name:</label>
+      <input type="text" [(ngModel)]="newDoctor.name" name="name" required />
+    </div>
+ <div>
+      <label>Email:</label>
+      <input type="text" [(ngModel)]="newDoctor.email" name="name" required />
+    </div>
+    <div>
+      <label>Specialization:</label>
+      <input
+        type="text"
+        [(ngModel)]="newDoctor.specialization"
+        name="specialization"
+        required
+      />
+    </div>
+
+    <div>
+      <label>Phone Number:</label>
+      <input type="text" [(ngModel)]="newDoctor.phone" name="phone" required />
+    </div>
+
+    <div>
+      <label>Consultation Fee:</label>
+      <input type="number" [(ngModel)]="newDoctor.fee" name="fee" required />
+    </div>
+
+    <button type="submit">Add Doctor</button>
+  </form>
+
+  <table class="doctor-table" *ngIf="doctors.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+         <th>Email</th>
+        <th>Specialization</th>
+        <th>Phone</th>
+        <th>Fee</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let doc of doctors; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{ doc.name }}</td>
+        <td>{{ doc.email }}</td>
+        <td *ngIf="editingDoctor?.id !== doc.id">{{ doc.specialization }}</td>
+        <td *ngIf="editingDoctor?.id !== doc.id">{{ doc.phone }}</td>
+        <td *ngIf="editingDoctor?.id !== doc.id">{{ doc.fee }}</td>
+        
+        <!-- Edit form fields -->
+        <td *ngIf="editingDoctor?.id === doc.id">
+          <input type="text" [(ngModel)]="editForm.specialization" name="editSpecialization" />
+        </td>
+        <td *ngIf="editingDoctor?.id === doc.id">
+          <input type="text" [(ngModel)]="editForm.phone" name="editPhone" />
+        </td>
+        <td *ngIf="editingDoctor?.id === doc.id">
+          <input type="number" [(ngModel)]="editForm.fee" name="editFee" />
+        </td>
+        
+        <td>
+          <button *ngIf="editingDoctor?.id !== doc.id" (click)="editDoctor(doc)">Edit</button>
+          <button *ngIf="editingDoctor?.id === doc.id" (click)="updateDoctor()">Update</button>
+          <button *ngIf="editingDoctor?.id === doc.id" (click)="cancelEdit()">Cancel</button>
+          <button *ngIf="editingDoctor?.id !== doc.id" (click)="deleteDoctor(doc.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Debug info -->
+  <div *ngIf="editingDoctor" style="background: #f0f0f0; padding: 10px; margin: 10px; border-radius: 5px; font-size: 12px;">
+    <strong>Debug Info:</strong><br>
+    Editing Doctor ID: {{ editingDoctor?.id }}<br>
+    Edit Form: {{ editForm | json }}<br>
+    Original Values: {{ originalValues | json }}
+  </div>
+</div>
