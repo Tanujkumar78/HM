@@ -126,7 +126,7 @@ export class DoctorComponent implements OnInit {
           this.originalValues = { specialization: '', phone: '', fee: '' };
           this.loadDoctors();
         },
-        error: (error) => {
+        error: (error: any) => {
           console.error('Update failed:', error);
           alert('Failed to update doctor. Please try again.');
         }
